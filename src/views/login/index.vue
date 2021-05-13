@@ -3,29 +3,30 @@
 <template>
   <div class="login">
     <div class="left">
-      <img src="../../assets/imgs/login_img.png" alt="" />
+      <img src="../../assets/imgs/login_img.png"
+           alt="" />
     </div>
     <div class="right">
       <div class="avater">
-        <img src="../../assets/imgs/login_logo.png" alt="" />
+        <img src="../../assets/imgs/login_logo.png"
+             alt="" />
       </div>
       <div class="title">后台管理系统</div>
-      <el-form
-        label-width="80px"
-        :rules="rules"
-        ref="ruleForm"
-        :model="ruleForm"
-      >
-        <el-form-item label="名称" prop="username">
+      <el-form label-width="80px"
+               :rules="rules"
+               ref="ruleForm"
+               :model="ruleForm">
+        <el-form-item label="名称"
+                      prop="username">
           <el-input v-model="ruleForm.username"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="password">
+        <el-form-item label="密码"
+                      prop="password">
           <el-input v-model="ruleForm.password"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')"
-            >登录</el-button
-          >
+          <el-button type="primary"
+                     @click="submitForm('ruleForm')">登录</el-button>
           <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
       </el-form>
@@ -52,7 +53,7 @@ export default {
       }
     }
   },
-  mounted () {},
+  mounted () { },
   methods: {
     submitForm (formName) {
       this.$refs[formName].validate(async (valid) => {
@@ -75,7 +76,7 @@ export default {
         sessionStorage.setItem('userInfo', JSON.stringify(res.data))
         // console.log(3)
         // this.$router.push('/home')
-        this.$router.push({ path: '/home' }).catch(() => {})
+        this.$router.push({ path: '/home' }).catch(() => { })
         // console.log(4)
       })
     },

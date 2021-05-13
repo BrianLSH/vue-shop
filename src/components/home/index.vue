@@ -15,7 +15,27 @@ export default {
   name: '',
   methods: {
     logOut () {
-
+      this.$confirm('logout？', {
+        distinguishCancelAndClose: true,
+        confirmButtonText: 'yes',
+        cancelButtonText: 'no'
+      })
+        .then(() => {
+          this.$message({
+            type: 'info',
+            message: '退出登录'
+          })
+          sessionStorage.clear()
+          this.$router.push('/login')
+        })
+        .catch(action => {
+          // this.$message({
+          //   type: 'info',
+          //   message: action === 'cancel'
+          //     ? '放弃保存并离开页面'
+          //     : '停留在当前页面'
+          // })
+        })
     }
   }
 }
