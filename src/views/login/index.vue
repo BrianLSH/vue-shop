@@ -62,19 +62,21 @@ export default {
 
         // try {
         const { data: res } = await this.$http.post('login', this.ruleForm)
-        console.log(1)
+        // console.log(1)
         // console.log(res)
 
         if (res.meta.status !== 200) {
-          this.$message('用户名密码错误')
+          return this.$message('用户名密码错误')
+          // return false
         }
-        console.log(2)
+        console.log(res.meta.status)
+        // console.log(2)
         this.$message('登录成功')
         sessionStorage.setItem('userInfo', JSON.stringify(res.data))
-        console.log(3)
+        // console.log(3)
         // this.$router.push('/home')
         this.$router.push({ path: '/home' }).catch(() => {})
-        console.log(4)
+        // console.log(4)
       })
     },
     resetForm (formName) {
