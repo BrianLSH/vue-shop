@@ -15,8 +15,13 @@ const routes = [
     component: Login
   }, {
     path: '/home',
-    name: 'home',
-    component: () => import('../components/home')
+    component: () => import('../components/home'),
+    redirect: '/welcome',
+    children: [
+      // kong 代表默认的二级路由 不知道为什么
+      { path: '/welcome', component: () => import('../components/welcome') }
+    ]
+
   }
 ]
 
@@ -29,14 +34,14 @@ router.beforeEach((to, from, next) => {
     return next()
   }
   // debugger
-  console.log(5)
+  // console.log(5)
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
-  console.log(6)
-  console.log(userInfo)
+  // console.log(6)
+  // console.log(userInfo)
   if (!userInfo) {
     return next('/login')
   }
-  console.log(7)
+  // console.log(7)
   next()
 })
 export default router

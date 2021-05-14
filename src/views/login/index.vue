@@ -70,7 +70,7 @@ export default {
           return this.$message('用户名密码错误')
           // return false
         }
-        console.log(res.meta.status)
+        // console.log(res.meta.status)
         // console.log(2)
         this.$message('登录成功')
         sessionStorage.setItem('userInfo', JSON.stringify(res.data))
