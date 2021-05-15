@@ -45,8 +45,9 @@
 
           </el-aside>
         </div>
-        <div class="content">
-          <el-main style="border:1px solid red">
+        <div class="content"
+             style="border:1px solid red; width: 100%">
+          <el-main style="border:1px solid red; width: 100%;padding:12px;">
             <router-view></router-view>
           </el-main>
         </div>
@@ -105,7 +106,7 @@ export default {
     },
     async getMenuList () {
       const { data: res } = await this.$http.get('menus')
-      console.log(res)
+      // console.log(res)
       if (res.meta.status !== 200) {
         this.$message.error(res.meta.msg)
       }
@@ -141,11 +142,25 @@ export default {
     border: 1px solid black;
     .el-aside {
       .el-menu {
-        min-height: 100vh;
+        // min-height: 100vh;
+
+        // display: flex;
+        // flex: 1;
+
+        // height: calc(100% - 40px);
+
+        // height: 100%;
+        // position: absolute;
+        // left: 0px;
+        // top: 0px;
+
         margin: 0px;
         padding: 0px;
         .iconfont {
           margin-right: 10px;
+        }
+        .el-menu-item {
+          margin-left: 15px !important;
         }
       }
       .content {

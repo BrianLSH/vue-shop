@@ -19,7 +19,8 @@ const routes = [
     redirect: '/welcome',
     children: [
       // kong 代表默认的二级路由 不知道为什么
-      { path: '/welcome', component: () => import('../components/welcome') }
+      { path: '/welcome', component: () => import('../components/welcome') },
+      { path: '/users', component: () => import('../components/user') }
     ]
 
   }
