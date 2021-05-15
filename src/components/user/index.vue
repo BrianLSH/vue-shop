@@ -21,6 +21,7 @@
               <div class="grid-content bg-purple">
                 <el-input placeholder="请输入内容"
                           size="small"
+                          clearable
                           v-model="queryInfo.query"
                           class="input-with-select">
                   <el-button slot="append"
@@ -128,7 +129,7 @@
           <span slot="footer"
                 class="dialog-footer">
             <el-button size="small"
-                       @click="centerDialogVisible = false">取 消</el-button>
+                       @click="editDialogVisible = false">取 消</el-button>
             <el-button type="primary"
                        size='small'
                        @click="editUser">确 定</el-button>
@@ -349,6 +350,7 @@ export default {
       this.queryInfo.pagenum = val
       this.getList()
     },
+
     async changeStatus (scope) {
       const { data: res } = await this.$http.put(`users/${scope.id}/state/${scope.mg_state}`)
       // console.log(res)
