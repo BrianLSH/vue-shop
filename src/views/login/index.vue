@@ -70,7 +70,7 @@ export default {
           return this.$message('用户名密码错误')
           // return false
         }
-        // console.log(res.meta.status)
+        console.log(res.data)
         // console.log(2)
         this.$message('登录成功')
         sessionStorage.setItem('userInfo', JSON.stringify(res.data))
@@ -121,15 +121,18 @@ export default {
       position: absolute;
       left: 90px;
       top: -60px;
-      img {
-        // border: 1px solid red;
-      }
     }
     .title {
       // border: 1px solid red;
       text-align: center;
       margin-top: 100px;
       font-size: 24px;
+    }
+    .el-form {
+      .el-button {
+        margin: 10px;
+        padding: 10px;
+      }
     }
   }
 }
